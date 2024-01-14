@@ -20,9 +20,11 @@ from proyectocoder.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(""),
+    path("", inicio),
     path('remeras/', ver_remeras),
-    path('calzado/', ver_gorras),
-    path('gorras/', ver_calzado),
-    path('gorras/añadir', agregar_remeras)
+    path('post_remeras/', post_remeras, name='post_remeras'),
+    path('calzado/', ver_calzado),
+    path('post_calzado/', post_calzado, name='post_calzado'),
+    path('gorras/', ver_gorras),
+    path('post_gorras/', post_gorras, name='post_gorras'),
 ]

@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.urls import reverse
 from proyectocoder.models import *
+from proyectocoder.forms import *
 
+def inicio(req):
+    return render(req, "index.html")
 def ver_remeras(req):
     remeras = Remeras.objects.all()
     all = {"remeras": remeras}
@@ -15,11 +19,34 @@ def ver_calzado(req):
     all = {"calzados": calzado}
     return render(req, "calzado.html", all)
 
-def agregar_remeras(req):
-    nombre = req.nombre
-    precio = req.precio
-    talle = req.talle
-    color = req.color
-    remeras = Remeras(nombre= nombre, precio= precio, talle= talle, color= color)
-    remeras.save()
-    return HttpResponse("Remera añadida a la db")
+def post_gorras(request):
+    if request.method == 'POST':
+        form = GorraForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, "gorras.html")
+    else:
+        form = GorraForm()
+    return render(request, 'gorras.html', {'form': form})
+
+def post_calzado(request):
+    if request.method == 'POST':
+        form = CalzadoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, "calzado.html")
+    else:
+        form = CalzadoForm()
+    return render(request, 'calzado.html', {'form': form})
+
+def post_remeras(request):
+    if request.method == 'POST':
+        form = RemeraForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, "remeras.html")
+    else:
+        form = RemeraForm()
+    return render(request, 'remeras.html', {'form': form})
+
+

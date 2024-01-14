@@ -1,0 +1,22 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    width: 200px;
+    text-align: center;
+}
+
+.prueba {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+    height: 340px;
+}
+.button_add {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
