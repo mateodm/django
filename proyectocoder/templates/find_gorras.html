@@ -1,0 +1,26 @@
+{% extends 'padre.html' %}
+
+{% block content %}
+<h2>Resultados de la búsqueda para "{{ input }}"</h2>
+
+{% if result %}
+<ul>
+    <div class="row">
+        {% for gorra in result %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ gorra.nombre }}</h5>
+                    <p class="card-text">Color: {{ gorra.color }}</p>
+                    <p class="card-text">Precio: ${{ gorra.precio }}</p>
+                    <button class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</ul>
+{% else %}
+<p>No se encontraron resultados para "{{ input }}"</p>
+{% endif %}
+{% endblock %}

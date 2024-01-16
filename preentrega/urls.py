@@ -23,8 +23,11 @@ urlpatterns = [
     path("", inicio),
     path('remeras/', ver_remeras),
     path('post_remeras/', post_remeras, name='post_remeras'),
+    path('remeras/find/', search_remeras, name="search_remeras"),
     path('calzado/', ver_calzado),
     path('post_calzado/', post_calzado, name='post_calzado'),
+    path('calzado/find/', search_calzado, name="search_calzado"),
     path('gorras/', ver_gorras),
     path('post_gorras/', post_gorras, name='post_gorras'),
+    path('gorras/find/', search_gorras, name="search_gorras"),
 ]

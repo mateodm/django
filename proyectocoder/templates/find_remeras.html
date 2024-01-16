@@ -1,0 +1,27 @@
+{% extends 'padre.html' %}
+
+{% block content %}
+<h2>Resultados de la búsqueda para "{{ input }}"</h2>
+
+{% if result %}
+<ul>
+    <div class="row">
+        {% for remera in result %}
+        <div class="col-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ remera.nombre }}</h5>
+                    <p class="card-text">Talle: {{ remera.talle }}</p>
+                    <p class="card-text">Color: {{ remera.color }}</p>
+                    <p class="card-text">Precio: ${{ remera.precio }}</p>
+                    <button class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</ul>
+{% else %}
+<p>No se encontraron resultados para "{{ input }}"</p>
+{% endif %}
+{% endblock %}

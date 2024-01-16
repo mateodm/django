@@ -49,4 +49,23 @@ def post_remeras(request):
         form = RemeraForm()
     return render(request, 'remeras.html', {'form': form})
 
+def search_remeras(request):
+    if request.method == "GET":
+        input = request.GET["nombre"]
+        result = Remeras.objects.filter(nombre__icontains=input)
+        return render(request, 'find_remeras.html', {'result': result, 'input': input})
+    
+def search_gorras(request):
+        if request.method == "GET":
+            input = request.GET["nombre"]
+            result = Gorras.objects.filter(nombre__icontains=input)
+            return render(request, 'find_gorras.html', {'result': result, 'input': input})
+    
+def search_calzado(request):
+        if request.method == "GET":
+            input = request.GET["modelo"]
+            result = Calzado.objects.filter(modelo__icontains=input)
+            return render(request, 'find_calzado.html', {'result': result, 'input': input})
+
+
 
