@@ -1,0 +1,12 @@
+{% extends 'padre.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Editar Calzado</h2>
+    <form method="post" action="{% url 'editar_calzado' id=calzado.id %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Guardar Cambios" class="btn btn-primary">
+    </form>
+  </div>
+{% endblock %}

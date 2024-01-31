@@ -1,0 +1,11 @@
+{% extends 'padre.html' %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Borrar remera</h2>
+    <form method="post" action="{% url 'borrar_remera' id=remera.id %}">
+      {% csrf_token %}
+      <input type="submit" value="Borrar" class="btn btn-primary">
+    </form>
+  </div>
+{% endblock %}
