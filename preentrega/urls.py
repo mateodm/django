@@ -36,4 +36,7 @@ urlpatterns = [
     path('editar_gorras/<int:id>/', editar_gorra, name='editar_gorra'),
     path('borrar_gorra/<int:id>/', borrar_gorra, name='borrar_gorra'),
     path('gorras/find/', search_gorras, name="search_gorras"),
+    path("login/", login_request, name="login"),
+    path('register/', register, name='register'),
+    path("logout/", logout_view, name="logout")
 ]

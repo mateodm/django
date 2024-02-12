@@ -1,0 +1,39 @@
+{% extends 'padre.html' %}
+{% block content %}
+
+<style>
+    .login-form {
+        width: 350px;
+    }
+</style>
+
+<div class="container mt-5 mb-5">
+    <div class="row card-auth justify-content-center">
+        <div class="col-md-6">
+            <div class="card login-form">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Iniciar sesión</h2>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <label for="id_username">Usuario</label>
+                            <input type="text" name="username" class="form-control" id="id_username" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="id_password">Contraseña</label>
+                            <input type="password" name="password" class="form-control" id="id_password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>¿No tienes una cuenta? <a href="{% url 'register' %}">Regístrate aquí</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
